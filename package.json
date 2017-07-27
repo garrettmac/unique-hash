@@ -1,0 +1,29 @@
+{
+  "name": "unique-hash",
+  "version": "1.0.0",
+  "description": "Generate a unique and repeatable hash id for strings like names and urls",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garrettmac/unique-hash.git"
+  },
+  "keywords": [
+    "unique-id",
+    "hash",
+    "id",
+    "key",
+    "unique",
+    "javascript",
+    "repeatable",
+    "url"
+  ],
+  "author": "garrett mac <garrett@vyga.io> (http://vyga.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garrettmac/unique-hash/issues"
+  },
+  "homepage": "https://github.com/garrettmac/unique-hash#readme"
+}
