@@ -3,6 +3,9 @@
 Useful for saving to
 ```javascript
 import uniqueHash from "unique-hash"
+
+//or es5
+//var uniqueHash = require("unique-hash").default
 let url = "https://www.npmjs.com/package/unique-hash"
 
 uniqueHash(url)

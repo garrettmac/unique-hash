@@ -55,8 +55,8 @@ else hashId=numberHash
 
 let datePath=(date)?getDatePath(date):""
 let appendString=getOptionsPath(options,"append")
-if(appendString)appendString=Format(appendString)
-else appendString=""
+// if(appendString)appendString=Format(appendString)
+// else appendString=""
 
 let path=""+Format(getOptionsPath(options,"prepend"))
 					 +Format(datePath)
