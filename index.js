@@ -1,18 +1,19 @@
-// function uniqueHash(string) {
-//   var hash = 0, i, chr, len;
-//   if (string.length === 0) return hash;
-//   for (i = 0, len = string.length; i < len; i++) {
-//     chr   = string.charCodeAt(i);
-//     hash  = ((hash << 5) - hash) + chr;
-//     hash |= 0; // Convert to 32bit integer
-//   }
-//
-//   hash = hash > -1 ?
-//     '111' + hash.toString() :
-//     '000' + Math.abs(hash).toString()
-//
-//   return hash;
-// }
+// function charHash(string) {
+const charHash = (string) => {
+  var hash = 0, i, chr, len;
+  if (string.length === 0) return hash;
+  for (i = 0, len = string.length; i < len; i++) {
+    chr   = string.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  hash = hash > -1 ?
+    '111' + hash.toString() :
+    '000' + Math.abs(hash).toString()
+
+  return hash;
+}
 //
 // exports.default = uniqueHash;
 //let uh=require("unique-hash").default
@@ -21,7 +22,7 @@ var moment=require("moment")
 
 
 const Format = (path) => (path)?path+"/":"";
-const getDatePath = (date) =>(moment(date).isValid())?moment(date).format("YYYY/MM/DD"):"";
+const getDatePath = (date,formatDate="YYYY/MM/DD") =>(moment(date).isValid())?moment(date).format(formatDate):"";
 const getOptionsPath = (options,prop) =>_.get(options,`${prop}`);
 // const getOptionsPath = (options,prop) =>Format(_.get(options,`${prop}`));
 
@@ -37,6 +38,7 @@ str=str.toString()
 let format=_.get(options,"format")
 
 if(format==="kebabCase")return _.kebabCase(str)
+if(format==="charHash")return _.charHash(str)
 
 let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
