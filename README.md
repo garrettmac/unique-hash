@@ -24,7 +24,7 @@ uniqueHash(url,{
   date:new Date(),
   formatDate:"YYYY/DD",
   format:"string"
- }))
+ })
  //>> output "prepend/2017/08/27/appendDate/iIIHaAIG/append/"
 
 ```
