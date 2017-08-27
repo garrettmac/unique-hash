@@ -1,6 +1,6 @@
 {
   "name": "unique-hash",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Generate a unique and repeatable hash id for strings like names and urls",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/garrettmac/unique-hash/issues"
   },
-  "homepage": "https://github.com/garrettmac/unique-hash#readme"
+  "homepage": "https://github.com/garrettmac/unique-hash#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1"
+  }
 }
