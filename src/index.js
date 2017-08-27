@@ -45,10 +45,10 @@ if(format==="charHash")return _.charHash(str)
 
 let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
-let appendString=getOptionsPath(options,"append")
+let appendString=getOptionsPath(options,"append","")
 
 let date=_.get(options,"date")
-let hashId=getOptionsPath(options,"hashId")
+let hashId=getOptionsPath(options,"hashId","")
 if(!hashId){
 if(format==="string")hashId=letterHash
 else hashId=numberHash
@@ -119,12 +119,3 @@ return path
 
 
 }
-//
-// l(uniqueHash(url,{
-// prepend:"prepend",
-// append:"append",
-// appendDate:"appendDate",
-// hash:"hash",
-// date:new Date("Sunday 27 August 201707.00 EDT"),
-// format:"string"
-// }))

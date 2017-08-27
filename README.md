@@ -43,8 +43,22 @@ uniqueHash(url,{format:"string"})
 uniqueHash(url,{format:"string"})
 //>> output "iIIHaAIG"
 
- uniqueHash("John H. Smith",{format:"kebabCase"})
+
+uniqueHash("John H. Smith")
+//>> output 983277668
+uniqueHash("John H Smith")
+//>> output  983277668
+uniqueHash("JohnHSmith")
+//>> output 983277668
+
+
+uniqueHash("John H. Smith",{format:"kebabCase"})
 //>> output "john-h-smith"
+uniqueHash("John H Smith",{format:"kebabCase"})
+//>> output "john-h-smith"
+uniqueHash("JohnHSmith",{format:"kebabCase"})
+//>> output "john-h-smith"
+
 
 uniqueHash(url,{
   prepend:"articles",
