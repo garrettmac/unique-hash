@@ -6,20 +6,25 @@ import uniqueHash from "unique-hash"
 let url = "https://www.npmjs.com/package/unique-hash"
 
 uniqueHash(url)
-//>> output
+//>> output 88870086
 
 uniqueHash(url)
-//>> output
+//>> output 88870086
+
+uniqueHash(url,{format:"string"})
+//>> output "iIIHaAIG"
+
+uniqueHash(url,{format:"string"})
+//>> output "iIIHaAIG"
 
 uniqueHash(url,{
- prepend:"prepend",
- append:"append",
- appendDate:"appendDate",
- hashId:"hash",
- date:new Date(),
- format:"string"
+  prepend:"prepend",
+  append:"append",
+  appendDate:"appendDate",
+  date:new Date(),
+  format:"string"
  }))
- //>> output
+ //>> output "prepend/2017/08/27/appendDate/iIIHaAIG/append/"
 
 ```
 
