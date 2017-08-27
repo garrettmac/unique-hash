@@ -22,7 +22,8 @@ var moment=require("moment")
 
 const Format = (path) => (path)?path+"/":"";
 const getDatePath = (date) =>(moment(date).isValid())?moment(date).format("YYYY/MM/DD"):"";
-const getOptionsPath = (options,prop) =>Format(_.get(options,`${prop}`));
+const getOptionsPath = (options,prop) =>_.get(options,`${prop}`);
+// const getOptionsPath = (options,prop) =>Format(_.get(options,`${prop}`));
 
 
 
@@ -34,6 +35,8 @@ export default (str,options={}) => {
 
 str=str.toString()
 let format=_.get(options,"format")
+
+if(format==="kebabCase")return _.kebabCase(str)
 
 let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
@@ -48,11 +51,11 @@ else hashId=numberHash
 let datePath=(date)?getDatePath(date):""
 
 
-let path=""+getOptionsPath(options,"prepend")
+let path=""+Format(getOptionsPath(options,"prepend"))
 					 +Format(datePath)
-					 +getOptionsPath(options,"appendDate")
-					 +Format(hashId)
-					 +getOptionsPath(options,"append")
+					 +Format(getOptionsPath(options,"appendDate"))
+					 +hashId//Format(hashId)
+					 +(getOptionsPath(options,"append")):Format(getOptionsPath(options,"append")):""
 
 
 
