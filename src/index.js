@@ -68,7 +68,7 @@ let path=""+Format(getOptionsPath(options,"prepend"))
 					 +Format(datePath)
 					 +Format(getOptionsPath(options,"appendDate"))
 					 +hashId
-					 +appendString
+					 +(appendString)?appendString:""
 
 
 
