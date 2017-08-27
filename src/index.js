@@ -34,7 +34,7 @@ const getOptionsPath = (options,prop) =>_.get(options,`${prop}`);
 // const l = (o) =>console.log(o)
 
 export default (str,options={}) => {
-// const uniqueHash = (str,options={}) => {
+ // const uniqueHash = (str,options={}) => {
 
 
 str=str.toString()
@@ -47,11 +47,11 @@ let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
 
 
-let appendString=getOptionsPath(options,"append","")
-if(appendString) appendString="/"+appendString
+let appendString=getOptionsPath(options,"append")
+appendString=(appendString)?"/"+appendString:""
 
 let date=_.get(options,"date")
-let hashId=getOptionsPath(options,"hashId","")
+let hashId=getOptionsPath(options,"hashId")
 if(!hashId){
 if(format==="string")hashId=letterHash
 else hashId=numberHash
@@ -68,7 +68,7 @@ let path=""+Format(getOptionsPath(options,"prepend"))
 					 +Format(datePath)
 					 +Format(getOptionsPath(options,"appendDate"))
 					 +hashId
-					 +(appendString)?appendString:""
+					 +appendString//(appendString)?appendString:""
 
 
 
