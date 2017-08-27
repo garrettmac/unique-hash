@@ -1,6 +1,6 @@
 {
   "name": "unique-hash",
-  "version": "2.3.7",
+  "version": "2.3.8",
   "description": "Generate a unique and repeatable hash id for strings like names and urls",
   "main": "lib/index.js",
   "scripts": {
@@ -13,6 +13,9 @@
   "keywords": [
     "unique-id",
     "hash",
+    "database",
+    "save",
+    "util",
     "id",
     "key",
     "unique",

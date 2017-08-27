@@ -45,16 +45,19 @@ if(format==="charHash")return _.charHash(str)
 
 let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
+let appendString=getOptionsPath(options,"append")
+
 let date=_.get(options,"date")
 let hashId=getOptionsPath(options,"hashId")
 if(!hashId){
 if(format==="string")hashId=letterHash
 else hashId=numberHash
+}else if(hashId&&appendString) {
+	hashId=Format(hashId)
 }
 
 
 let datePath=(date)?getDatePath(date):""
-let appendString=getOptionsPath(options,"append")
 // if(appendString)appendString=Format(appendString)
 // else appendString=""
 
