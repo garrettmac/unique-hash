@@ -1,4 +1,5 @@
-var _=require("lodash")
+var get=require("lodash/fp/get")
+var kebabCase=require("lodash/fp/kebabCase")
 var moment=require("moment")
 
 
@@ -26,7 +27,7 @@ const charHash = (string) => {
 
 const Format = (path) => (path)?path+"/":"";
 const getDatePath = (date,formatDate="YYYY/MM/DD") =>(moment(date).isValid())?moment(date).format(formatDate):"";
-const getOptionsPath = (options,prop) =>_.get(options,`${prop}`);
+const getOptionsPath = (options,prop) =>get(`${prop}`,options);
 // const getOptionsPath = (options,prop) =>Format(_.get(options,`${prop}`));
 
 
@@ -38,10 +39,10 @@ export default (str,options={}) => {
 
 
 str=str.toString()
-let format=_.get(options,"format")
+let format=get("format",options)
 
-if(format==="kebabCase")return _.kebabCase(str)
-if(format==="charHash")return _.charHash(str)
+if(format==="kebabCase")return kebabCase(str)
+if(format==="charHash")return charHash(str)
 
 let numberHash=createNumberHash(str)
 let letterHash=createLetterHash(numberHash)
@@ -50,7 +51,7 @@ let letterHash=createLetterHash(numberHash)
 let appendString=getOptionsPath(options,"append")
 appendString=(appendString)?"/"+appendString:""
 
-let date=_.get(options,"date")
+let date=get("date",options)
 let hashId=getOptionsPath(options,"hashId")
 if(!hashId){
 if(format==="string")hashId=letterHash
@@ -84,7 +85,7 @@ return path
 * @return {number} - Unique Number
 */
 	const createNumberHash=(str)=>{
-	    str=_.kebabCase(str)
+	    str=kebabCase(str)
 	  var hash = 0, i, chr, len;
 	  if (str.length === 0) return hash;
 	  for (i = 0, len = str.length; i < len; i++) {
