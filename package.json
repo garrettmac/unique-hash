@@ -1,5 +1,5 @@
 {
-  "name": "unique-hash",
+  "name": "koura/unique-hash",
   "version": "2.6.2",
   "description": "Generate a unique and repeatable hash id for strings like names and urls",
   "main": "lib/index.js",
